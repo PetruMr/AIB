@@ -1,19 +1,6 @@
-<style>
-  body {max-width:700px}
-  h1 {color:rgb(255,120,100);font-size:30pt;font-weight:bolder}
-  h2 {color:rgb(50,200,200);font-size:20pt;font-weight:bold}
-  h3 {color:rgb(100,255,100);font-size:15pt;font-weight:bold}
-  h4 {color:rgb(255,255,100);font-size:12pt;font-weight:100}
-  p {padding-left:10px}
-  
-
-  em {color:rgb(255,255,155);font-weight:bold}
-
-  strong {color:rgb(250,100,200)}
-  b1 {color:rgb(255,100,100);text-decoration:none;font-weight:bold}
-  b2 {color:rgb(255,100,100);text-decoration:none;font-weight:bold}
-</style>
-
+[//]: # (Date: 2023-03-07 13:00)
+[//]: # (Stili di riferimento per il markdown)
+<link rel="stylesheet" href="./res/style.css">
 
 > # Nomi
 
@@ -214,6 +201,53 @@ Cosa stampa questo programma?
   }
   write(x);
 }
+``` 
 
-/* Stampa 3, poi 0 e poi 3 di nuovo nella maggior parte dei linguaggi di programmazione */
+- All'interno di uno *scope statico*:
+  - Stampa 4, poi 0 e poi 4 di nuovo.
+  - Questo è il comportamento di default di molti linguaggi di programmazione.
+  - "Un nome non locale è risolto nel blocco che testualmente lo racchiude" 
+
+- All'interno di uno *scope dinamico*:
+  - Stampa sempre 4.    
+  - "Un nome non locale è risolto nel blocco attivato più di recente e non ancora disattivato"
+
+
+#### Scope statico
+
+Informazione è completa in base al testo del programma, tutte le associazioni sono note a tempo di compilazione. Diventa più difficile da implementare ma è più efficiente poi.
+
+Linguaggi come Algol, Pascal, C, Java...
+
+#### Scope dinamico
+
+L'informazione deriva dall'esecuzione, quindi i programmi sono spesso molto più difficili da leggere. L'implementazione è più semplice, ma è meno efficiente.
+
+Linguaggi come List (alcune versioni), Pearl...
+
+**NOTARE** che nel C si può usare lo scope dinamico usando le macro. Questo perché poi abbiamo che le macro vengono espandite prima della compilazione, quindi effettivamnete usano quello che è un scope statico.
+
+
+### Ambiente
+
+L'ambiente è quindi determinato da:
+- Regole di *scope* (dinamico o statico)
+- Regole particolari (esempio fatto di C in precedenza)
+
+### Regole particolari
+
+Acune regole particolari sono:
+- **Java**: le variabili sono visibili solo dopo che sono state dichiarate. Le funzioni lo sono sia prima che dopo, quindi è permessa la mutua ricorsione. 
+- **Pascal**: non è permesso usare una variabile che è presente nello scope prima che essa venga dichiarata all'interno di esso, anche se è presente in uno scope esterno.
+
+L'esempio che quindi darebbe errore in pascal è:
+```Pascal
+const a = -1;
+
+procedure pippo;
+  const b = a;
+  ...
+  const a = 0;
+
+// Errore di semantica o errore di semantica statica
 ```

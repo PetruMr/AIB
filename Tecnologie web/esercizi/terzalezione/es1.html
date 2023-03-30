@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Esercizio 1</title>
+
+        <!-- CSS -->
+        <style>
+
+        </style>
+    </head>
+    <body>
+    
+        <p id="result"></p>
+
+        <!-- JS -->
+        <script>
+
+            let returnValue = [];
+            let n = prompt("Inserisci il numero di valori di Fibonacci da calcolare: ", "3")
+
+            if (n <= 0) {
+                returnValue = "Inserisci un numero maggiore di 0"
+            } else {
+                if (n == 1) {
+                    returnValue.push(0)
+                } else {
+                    returnValue.push(0, 1)
+                    for (let i = 2; i < n; i++) {
+                        returnValue.push(returnValue[i - 1] + returnValue[i - 2])
+                    }
+                }
+            }
+
+            if (Array.isArray(returnValue)) {
+                returnValue = returnValue.join('<br>')
+            }
+            document.getElementById("result").innerHTML = returnValue;
+
+        </script>
+    </body>
+</html>
