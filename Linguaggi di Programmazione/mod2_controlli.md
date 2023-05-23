@@ -275,7 +275,7 @@ Rispetto all'uso di `if ... then ... else`, il `case` offre:
 
 ### Iterazione
 
-Iterazione e ricorsione sono i due meccanismi che permettono di ottenere formalismi di calcolo Turing completi. Senza di essi avremmo automomi a stsati finiti.
+Iterazione e ricorsione sono i due meccanismi che permettono di ottenere formalismi di calcolo Turing completi. Senza di essi avremmo automomi a stati finiti.
 
 **Iterazione**:
 - *Indeterminata* (while, repeat)
@@ -332,7 +332,7 @@ I linguaggi moderni non permettono proprio tutto, mentre per esempio il **do** d
 #### Il valore dell'indice alla fine
 
 Il valore di `indice` alla fine del ciclo dipende dal linguaggio:
-- Può essere l'ultimo assegnato, ovvero il primo valore che ccede il limite `fine`
+- Può essere l'ultimo assegnato, ovvero il primo valore che eccede il limite `fine`
 - Può essere l'ultimo valido
 - Può essere indefinito
 

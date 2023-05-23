@@ -53,7 +53,7 @@ Se supponessimo che fosse legale, quello che succederebbe è che la chiamata ric
 
 Con ricorsione l'allocazione statica non è sufficiente. Questo perchè a run time possono esistere più istanze della stessa variabile locale di una procedura.
 
-Ogni istanza di un sottoprogramma a run-time ha una porzione di memoria detta *record di attivazione* (o *frame*) contenente le iformazioni relative alla specifica istanza (tra cui anche l'indirizzo di ritorno).
+Ogni istanza di un sottoprogramma a run-time ha una porzione di memoria detta *record di attivazione* (o *frame*) contenente le informazioni relative alla specifica istanza (tra cui anche l'indirizzo di ritorno).
 
 La *pila* (LIFO) è la struttura dati naturale per gestire i record di attivazione perché le chiamate di procedura anche ricorsiva ed i blocchi sono annidati uno dentro l'altro.
 
@@ -168,7 +168,7 @@ int fact(int n) {
 [ * risultato        ] //   |
 [ n         |  2     ] //   |
                        //   |
--> fact(2)             //   |
+-> fact(1)             //   |
 [ Link dinamico      ] //   |
 [ fact(n-1) |        ] //   |
 [ * a nel fact       ] // --+
@@ -186,7 +186,7 @@ int fact(int n) {
 [ * risultato        ] //   |
 [ n         |  2     ] //   |
                        //   |
--> fact(2)             //   |
+-> fact(1)             //   |
 [ Link dinamico      ] //   |
 [ fact(n-1) |  1     ] //   |
 [ * a nel fact       ] // --+

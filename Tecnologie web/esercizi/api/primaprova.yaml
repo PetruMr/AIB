@@ -1,0 +1,171 @@
+swagger: "2.0"
+
+info:
+  description: "API Ristorante"
+  version: "1.0.0"
+  title: "API Ristorante"
+
+paths:
+  /menus/:
+    get:
+      operationId: elencoMenu
+      summary: elenco menu
+      description: Questa operazione permette di ...
+      parameters:
+        - name: prezzoMinimo
+          in: query
+          type: integer
+        - name: tipoMenu
+          in: query
+          type: string
+          enum: 
+            - carne
+            - pesce
+      responses:
+        '200':
+          description: Elenco degli oggetti
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Menu'
+        '400':
+          description: Errore richiesta
+    post:
+      operationId: aggiungiMenu
+      summary: Aggiunta di un menu
+      description: Questa operazione ci permette di ...
+      parameters:
+        - name: nuovoMenu
+          in: body
+          description: Nome del menu
+          schema:
+            $ref: '#/definitions/Menu'
+      responses:
+        '200':
+          description: Inserito con successo
+        '400':
+          description: Errore di inserimento
+  
+  /menus/{idMenu}/:
+    get:
+      operationId: menuSingolo
+      description: Informazioni di un menu
+      parameters:
+        - name: idMenu
+          in: path
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Ritorna un menu
+          schema:
+              $ref: '#/definitions/Menu'
+        '400':
+          description: Errore richiesta
+    delete:
+      operationId: cancellaMenu
+      description: cancellazione di un menu
+      parameters:
+        - name: idMenu
+          in: path
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Cancellato con successo
+        '400':
+          description: Errore richiesta
+
+  /menus/{idMenu}/piatti/:
+    get:
+      operationId: piattiMenu
+      description: Elenco di tutti i piatti del menu
+      parameters:
+        - name: idMenu
+          in: path
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Ritorna l'elenco dei piatti
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Piatto'
+        '400':
+          description: Errore richiesta
+    post:
+      operationId: aggiungiPiattoAlMenu
+      description: aggiunta di un piatto al menu
+      parameters:
+        - name: idMenu
+          in: path
+          type: integer
+          required: true
+        - name: piattoAggiungo
+          in: body
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/Piatto'
+          required: true
+      responses:
+        '200':
+          description: Aggiunto con successo
+        '400':
+          description: Errore richiesta
+        
+  /menus/{idMenu}/piatti/{idPiatto}/:
+    get:
+      operationId: piattoMenu
+      description: Ritorna un piatto del menu
+      parameters:
+        - name: idMenu
+          in: path
+          type: integer
+          required: true
+        - name: idPiatto
+          in: path
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Ritorna l'elenco dei piatti
+          schema:
+            $ref: '#/definitions/Piatto'
+        '400':
+          description: Errore richiesta
+      
+    
+definitions:
+  Menu:
+    type: object
+    properties:
+      id:
+        type: integer
+      descrizione:
+        type: string
+      tipo:
+        type: string
+        enum:
+          - carne
+          - pesce
+      prezzo:
+        type: integer
+        minimum: 50
+  Piatto:
+    type: object
+    required:
+      - id
+      - descrizione
+      - prezzo
+    properties:
+      id:
+        type: integer
+      descrizione:
+        type: string
+        example: "Un buonissimo piatto di pesce"
+      prezzo:
+        type: integer
+        minimum: 50
+          
