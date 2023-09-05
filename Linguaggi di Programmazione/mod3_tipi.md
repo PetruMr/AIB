@@ -710,7 +710,7 @@ L'algoritmo di inferenza non è in grado, spesso, di *capire subito il tipo di u
 
 Essenzialmente noi riduciamo e riduciamo, arrichendo di vincoli, la gamma di possibili tipi che le cose siano. Per esempio, se incontriamo `+` sappiamo che possiamo assumere che quelli collegati al `+` siano numeri. La procedura che esegue questo controllo sui vincoli è una strategia di risoluzione della programmazione logica nota come **algoritmo di unificazione**.
 
-C non lo fornisce un supporto rilevante per l'inferenza di tipo, mentre Java e Rust lo fanno in modo semplice. I linguaggi della famiglia ML, basati sul sistema di tipi Hindley-Milner [1,2], forniscono un supporto più completo per l'inferenza di tipo.
+C non lo fornisce un supporto rilevante per l'inferenza adi tipo, mentre Java e Rust lo fanno in modo semplice. I linguaggi della famiglia ML, basati sul sistema di tipi Hindley-Milner [1,2], forniscono un supporto più completo per l'inferenza di tipo.
 
 ---
 

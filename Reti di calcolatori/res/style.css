@@ -1,0 +1,13 @@
+body {max-width:700px}
+h1 {color:rgb(255,120,100);font-size:30pt;font-weight:bolder}
+h2 {color:rgb(50,200,200);font-size:20pt;font-weight:bold}
+h3 {color:rgb(100,255,100);font-size:15pt;font-weight:bold}
+h4 {color:rgb(255,255,100);font-size:12pt;font-weight:100}
+p {padding-left:10px}
+
+
+em {color:rgb(255,255,155);font-weight:bold}
+
+strong {color:rgb(250,100,200)}
+b1 {color:rgb(255,100,100);text-decoration:none;font-weight:bold}
+b2 {color:rgb(255,100,100);text-decoration:none;font-weight:bold}
