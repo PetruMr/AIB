@@ -460,3 +460,76 @@ Tutti gli else if sono non deterministici.
 E l'else finale è una condizione.
 
 Quella che ho scritto è essenzialmente la trasformazione in deterministica del problema, però goddamn.
+
+### Priorità agli scrittori
+
+```Java
+process Reader {
+    while (true) {
+        < await(nw == 0) -> nr++ >
+        // read DB
+        < nr-- >
+    }
+}
+
+process Writer {
+    while (true) {
+        < await(nr == 0 && nw == 0) -> nw++ >
+        // write db
+        < nw-- >
+    }
+}
+
+
+// Questo diventa
+
+process Reader {
+    while (true) {
+        mutex.P();
+        if (nw != 0 || waitingw > 0) {
+            waitingr++;
+            mutex.V();
+            semr.P();
+            waitingr--;
+        }
+        nr++
+        if (waitingr > 0)
+            semr.V()
+        else
+            mutex.V()
+        // read the db
+        mutex.P();
+        nr--;
+        if (waitingw > 0 && nr == 0) {
+            semw.V();
+        } else {
+            mutex.V();
+        }
+    }
+}
+
+process Writer {
+    while (true) {
+        mutex.P();
+        if (nw != 0 || nr != 0) {
+            waitingw++;
+            mutex.V();
+            semw.P();
+            waitingw--;
+        }
+        nw++;
+        mutex.V()
+        // read the db
+        mutex.P();
+        nw--;
+        if (waitingw > 0) {
+            semw.V();
+        } else if (waitingr > 0) {
+            semr.V();
+        } else {
+            mutex.V();
+        }
+    }
+}
+
+```
