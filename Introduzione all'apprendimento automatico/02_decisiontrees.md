@@ -169,3 +169,42 @@ $$I(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)$$
 Esempio all'interno del quale si capisce quale è quello migliore:
 
 ![Esempio](./res/entropiaesempiocalcolo.png)
+
+
+
+### Esempio slide 48
+
+Spiegazione Esempio slide 48
+
+Abbiamo 4 feature in input, che sono $X_1, X_2, X_3, X_4$.
+
+Da notare che il commento è sbagliato, in quanto se sono uguali è 0 e se sono diversi è 1.
+
+
+---
+
+## Perché usare i decision tree?
+
+Aspetti *positivi*:
+- Sono semplici da capire: semplici regole logiche, gli alberi possono essere visualizzati
+- Poco preprocessing: non serve normalizzare i dati, non serve gestire i missing values
+- Basso costo per la classificazione: tempo logaritmico nella dimensione dell'albero
+- Possono sia essere usati per feature discrete che continue
+
+Aspetti *negativi*:
+- Alto rischio di overfitting
+- La scelta degli attributi è molto instabile
+- Facile costruire alberi molto sbilanciati, specialmente se una classe è dominante.
+  - Potrebbe quindi essere utile bilanciare il training set
+
+## Foreste
+
+Di solito gli alberi di decisione vengono usati come componenti in Foreste Casuali, operando come un *ensamble*.
+
+Le tecniche *ensamble* sfruttano il principio secondo il quale un largo numero di modelli relativamente semplici, che operano in parallelo, sono migliori di un singolo modello complesso.
+
+Come si garantisce la differenziazione degli albreri? Si possono usare:
+- *Bagging*
+  - Dando diversi, casualmente scelti, training set
+- *Feature randomness*
+  - Costruendo alberi da un sottoinsieme casuale delle feature
