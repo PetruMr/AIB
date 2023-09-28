@@ -71,10 +71,45 @@ Trovare i requisiti del sistema. Come li trovo? Mi faccio raccontare delle stori
 Una descrizione degli *use case* include due parti:
 - Un diagramma, dove abbiamo *attori* che rappresentano persone o altri sistemi che interagiscono con il sistema che stiamo descrivendo.
 - Una descrizione testuale, che descrive il caso d'uso.
+  - Deve essere una descrizione passo passo dell'interazione tra un attore e l'use case.
+  - Devo cercare di scrivere poco, in modo chiaro e preciso.
 
 Dobbiamo generare le azioni atomiche che vengono viste esternamente.
 
 Per atomiche si intende il concetto di evitare di usare il caso d'uso "ordina pranzo completo" rispetto a "ordina antipasto", "ordina primo", etc.
+
+Come sviluppare un *use case*:
+- Quali sono i principali gesti e azioni che l'attore compie?
+- Quale informazione del sistema ottiene, produce o modifica l'attore?
+- L'attore dovrà informare il sistema di cambiamenti dell'ambiente esterno?
+- Quali informazioni desidera l'attore dal sistema?
+- L'attore desidera essere informato da cambiamenti insapettati del sistema?
+
+Esempio:
+
+![Use case](./res/usecase.png)
+
+L'attore effettua delle *use case*. Quindi quando faccio un *use case* devo capire quali sono gli attori del mio sistema. Da notare che esso non è necessariemnte un essere umano. L'attore deve partecipare al sistema, ovvero dobbiamo definire delle funzionalità atomiche dell'uso del sistema.
+
+##### Stereotipi
+
+Visto che abbiamo un numero limitato di frecce, UML usa gli **stereotipi**.
+
+Gli stereotipi sono nomi dati a delle frecce, che hanno un significato particolare, per esempio nel nostro caso abbiamo lo stereotipo `<<include>>` e `<<extends>>`.
+
+A volte si ha la doppia possiblità di usare o uno stereotipo o un simbolo particolare.
+
+Use case viene usato per dare una valutazione all'utente finale. L'use case dipende, quindai da cosa vuole il cliente.
+
+`<<includes>>` viene usato quando abbiamo delle funzionalità simili e che possono essere raggruppate, senza la necessità di fare *copy-paste*.
+
+`<<extends>>` definisce un secondo use case che insieme al use case di riferimento da un nuovo valore al cliente finale. Nel caso d'esempio io posso o "get the deal" in cui concludo l'affare, oppure, use case diverso, sono nel procinto di chiudere l'affare, e nella conclusione dell'affare scopro che non ho i soldi, quindi non posso concludere l'affare. Come notiamo rientra nel concetto di "get the deal", ma è un caso particolare. Sono quindi cose che non hanno valore assestante, ma che guadagnano un senso utile quando combinati con altri use case, formati da più use case.
+
+##### Attenzioni
+
+L'use case NON è l'interfaccia utente: avere un attore che interagisce con un interfaccia la quale include determinati use-case è SBAGLIATO, perché questo è come si farebbe un diagramma normale.
+
+Noi dobbiamo fare un diagramma use-case, quindi dobbiamo avere un approccio diverso.
 
 #### Diagramma delle classi
 
@@ -107,4 +142,132 @@ Ci sono due fasi:
   - Dove si capiscono i requisiti del sistema
 - **OO Requirements Analysis**
   - Dove si capisce come soddisfare i requisiti del cliente
+  - Vedere meglio "use case"
 
+
+### OO Context Analysis
+
+Cosa è l'analisi OO? Si tratta di un operazione in cui io vado a trovare quali sono gli elementi fondanti del mio sistema, cercando di determinare come questi oggetti possono essere organizzati in classi, come si rapportano gli uni agli altri e poi, se io posso trovare attributi all'interno di una classe, come posso descrivere lo stato della classe attraverso i metodi e poi cercare di descrivere un modello comportamentale e iterare (per capire se abbiamo fatto bene o male, in quanto dobbiamo "esplorare" la conoscenza che noi abbiamo, iterando e migliorando man mano).
+
+Dobbiamo considerare che le relazioni tra i vari elementi sono di due tipi grandi:
+- *Statiche*
+  - Come le classi sono l'una la specializzazione dell'altra
+  - Come le classi sono unite le une alle altre
+- *Dinamiche*
+  - Che devo andare a vedere a runtime, e che sono le interazioni tra gli oggetti.
+
+
+
+## Diagramma a classi
+
+E' quello che abbiamo fatto, in modo testuale, quando abbiamo sviluppato codice con Java o C++.
+
+Il diagramma a classi mostra la struttura statica del sistema:
+- *Tipi di oggetti*
+- *Relazioni*
+  - Dipendenze
+  - Ereditarietà
+    - L'ereditarietà è, nel 99% dei linguaggi, una ereditarietà addittiva, ovvero che aggiunge funzionalità.
+    - Da notare che nell'ereditarietà, noi possiamo evitare che sia addittivo usando private oppure override
+      - In particolare, quando si usa override, si ha "Accoppiamento", ovvero coupling, che è una cosa negativa.
+      - Questo in quanto se io vado a modificare il padre, il figlio potrebbe non funzionare più.
+      - In casi di comportamenti più desiderati si ha "Coesione", o cohesion, che è una cosa positiva.
+  - Associazioni
+
+
+### Livelli di astrazione
+
+Ci sono 3 livelli di astrazione:
+- *Concettuale* - **(OOA)**, Conceptual
+  - Mostrano i concetti astratti indipendentemente dall'implementazione
+  - Rappresenta il sistema, mi evidenzia le entità e le relazioni tra le entità e la loro complessità.
+- *Specifiche* - **(OOD)**, Specification
+  - Strttura del sistema
+  - Interfacce del software (ovvero tipi diversi)
+- *Implementazione* - **(OOP)**, Implementation
+  - La parte dove si fa il codice
+  - Vi sono i dettagli dell'implementazione
+  - E' il livello più "usato"
+
+### Classe
+
+Una classe è definita da:
+- *Nome*
+- *Attributi*
+- *Metodi*
+
+Questo viene rappresentato in UML come:
+
+```java
++------------------------+
+|     Persona            |
++------------------------+
+| nome: String           |
+| cognome: String        |
++------------------------+
+| +getNome(): String     |
+| +getCognome(): String  |
++------------------------+
+```
+
+Differenza tra classe e tipo:
+- *Classe*
+  - Il modo di implementare un tipo
+- *Tipo*
+  - E' il protocollo di comprensione dell'oggetto
+  - Definito dalle operazioni dell'oggetto
+  - Le interfacce, in java per esempio, rappresentano dei tipi.
+  - I tipi sono solo un protocollo, un insieme di metodi con determinati comportamenti
+
+UML 1.3 ha lo stereotipo `<<type>>`.
+
+#### Associazione
+
+Si tratta della relazione tra diverse istanze di classi. All'interno dell'UML l'associazione si spiega o attraverso una linea semplice o una con un diamante.
+
+![Associazione](./res/associazione.png)
+
+In questo esempio vediamo che c'è la molteplicità, come negli schemi E/R. Per mostrarla si usa `[*]` per indicare "N", `[1..*]`, per indicare da 1 a "N", `[0..3]`, etc. C'è inoltre la direzione, ovvero quale a quale è associato e qual'è il nome diq uesta associazione.
+
+Si può anche evitare di usare le associazioni, e si possono usare gli stereotipi, per esempio scrivendo `<<3x2>>`. Però come notiamo questa cosa è molto più complessa da leggere e potrebbe incasinare di tanto.
+
+#### Aggregazione
+
+Segna una relazione tra un entità che contiene più entità. Viene usato il diamante.
+
+Il diamante annerito è la relazione di *composizione*, ovvero che se io distruggo l'oggetto padre distruggo anche l'oggetto figlio.
+
+In particolare, evidenziamo una differenza tra Java e C++, dove nel primo mi creerebbe anche le istanze, mentre nel secondo no in quanto abbiamo un puntatore, e dovremmo gestire noi la memoria.
+
+### Classi e diagrammi
+
+Una classe può essere parte anche di diversi diagrammi.
+
+I diagrammi devono illustrare degli aspetti specifici, devono quindi:
+- Non avere troppe classi
+- Non avere troppe relazioni
+- Nascondere attributi e metodi non rilevanti
+
+Per questo c'è bisogno di iterare sul procedimento della creazione dei diagrammi.
+
+### Nomenclatura associazioni
+
+Per dare nomi alle associazioni è necessario:
+- Evitare di usare nomi senza signficiato
+  - `associated_with`
+  - `has`
+  - `is_related_to`
+  - Questi nomi sono ovvi
+- Il nome è spesso una parte di una parte verbale
+  - `has_part`
+  - `is_contained_in`
+
+### Ruolo
+
+Il ruolo è un etichetta specifica associata ad una relazione. Se non posso trovare il ruolo, che non è necessario, è implicita dalla classe target.
+
+Si aggiunge al nome dell'associazione.
+
+Per esempio tra `Corso` e `Professore` abbiamo la relazione `insegna` con ruolo, del professore, `èInsegnanteDi` e del corso `èCorsoInsegnato`.
+
+Il ruolo è obbligatorio quando ho associazioni di oggetti della stessa classe. Per esempio se ho una associazione tra `Persona` e `Persona` devo specificare il ruolo, per esempio uno è il padre e l'altro è il figlio, in modo che sia coerente con la moltiplicità.
