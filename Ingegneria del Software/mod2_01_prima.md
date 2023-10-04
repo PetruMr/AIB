@@ -271,3 +271,120 @@ Si aggiunge al nome dell'associazione.
 Per esempio tra `Corso` e `Professore` abbiamo la relazione `insegna` con ruolo, del professore, `èInsegnanteDi` e del corso `èCorsoInsegnato`.
 
 Il ruolo è obbligatorio quando ho associazioni di oggetti della stessa classe. Per esempio se ho una associazione tra `Persona` e `Persona` devo specificare il ruolo, per esempio uno è il padre e l'altro è il figlio, in modo che sia coerente con la moltiplicità.
+
+### Moltiplicità
+
+Indica quanti oggetti partecipano alla relazione.
+
+In particolare da notare:
+- `*` che vuol dire `[0..inf]`
+- `1` che vuol dire `[1..1]`
+- `0..1` che vuol dire `[0..1]`
+- `0..3` che vuol dire `[0..3]`
+- `2,3,4`
+
+### Responsabilità
+
+Si possono aggiungere alle classi e determinano determinati comportamenti che devono avere.
+
+![Esmepio](./res/esempioresponsabilita.png)
+
+### Navigabilità
+
+Viene indicata da una freccia. Se bidirezionale, allora vanno specificato i ruoli per entrambi per una identificazione più propria.
+
+![Esempio](./res/navigabilita.png)
+
+Ci va ad indicare che qualcosa può "navigare" qualcos'altro, nell'esempio:
+- Order può determinare il Customer
+- Customer non conosce tutti gli Order
+
+### Convenzioni di nomenclatura delle classi
+
+Le classi di solito hanno l'iniziale maiuscola e usano il camel case.
+
+Gli attributi e i metodi di solito hanno l'iniziale minuscola e usano il camel case.
+
+Usare `is` per i metodi booleani e `get`/`set` per i metodi che richiedono o che impostano gli attributi.
+
+### Classi per l'associazione
+
+Essenzialmente noi definiamo la relazione come classe piuttosto che come semplice associazione.
+
+Per esempio `User` e `Workstation` posso creare l'associazione chiamato `Authorized on >` e poi avere una classe collegata `Authorization` la quale detiene le proprietà e i metodi relative all'autorizzazione.
+
+Da un punto di vista pratico, però, cerchiamo di evitare questo approccio, in quanto diventa molto complesso molto in fretta e pertanto molto più difficile da leggere.
+
+### Oggetti e Classi
+
+Le classi sono definite da:
+- *Nome*
+- *Attributi*
+  - Concettuali: gli attributi sono indicativi del fatto che questa cosa è qualcosa che deve appartenere alla classe
+  - Specificazione: l'attributo deve essere un tipo di dato che si può usare (impostare e ottenere)
+  - Implementazione: un istanza della variabile che rappresenta l'attributo è disponibile
+- *Metodi*
+  - A livello concettuale sono le responsabilità
+  - A livello di specificazione sono le interfacce della classe
+  - Normalmente non si mostrano operazioni che manipolano gli attributi 
+
+Gli oggetti sono definiti da:
+- *Nome dell'oggetto*
+- *Nome della classe* (opzionale)
+- *Valore degli attributi* (opzionale)
+
+Sintassi per scrivere i metodi:
+
+![Metodi](./res/scriveremetodi.png)
+
+L'appartenenza ad una classe può essere fatta in due modi:
+- Dichiarazione implicita dalle regole
+  - Le regole definiscono condizioni per essere un membro della classe
+  - "Un oggetto è un numero razionale se lo posso rappresentare graficamente"
+- Esplicito per enumrazione
+  - Ovvero noi elenchiamo quali sono i possibli valori che possono essere rappresentati dalla classe
+
+UML da la possiblità di cambiare la classe dinamicamente, usando gli stereotipi.
+
+Questo è fatto in C++ e Java avendo una classe comune e poi cambiando i puntatori / i riferimenti per cambiare la classe.
+
+### Ereditarietà
+
+Attributi e operazioni definite in una classe sono ereditate dalle sottoclassi.
+
+Possono essere poi fatte:
+- Estensioni, aggiungendo nuovi attributi o operazioni
+- Restrizioni, aggiungendo restrizioni sugli attributi delle superclassi
+
+A livelli:
+- Concettualmente
+  - Bisogna avere una relazione di sottoinsieme
+- Specificazione
+  - Sottotipo diventa conforme al supertipo
+- Implementazione
+  - Implementazione dell'ereditarietà, viene fatta la sottoclasse
+
+Attenzione a non fare una sottoclasse quando il livello concettuale non lo supporta: usare le aggregazioni.
+
+Una stack NON è una lista come dell'overriding.
+
+L'ereditarietà multiplca è possibile, ma si hanno vantaggi e svantaggi:
+- *Vantaggi*
+  - Vicino al modo di pensare umano
+  - Flessibilità maggiore per specificare le classi
+  - Riuso del codice
+- *Svantaggi*
+  - Perdita di chiarezza del codice (sapere quale metodo è usato)
+  - L'implementazione è più complicata
+  - La risoluazione del conflitto è necessaria per i metodi con lo stesso nome
+
+
+In C++ ci sono le classi virtuali, che permettono di implementare l'ereditarietà multipla.
+
+Essenzialmente dobbiamo avere tutte le classi dalle quali ereditiamo che ereditano da una stessa classe virtuale.
+
+I metodi per risolvere l'ereditarietà multipla sono:
+- Delega o aggregazione
+  - Dove noi alleghiamo l'oggetto all'interno della classe piuttosto che ereditarci
+- Ereditarietà basata su feature più importanti del resto
+- Generalizzare su diverse dimensioni
