@@ -386,5 +386,21 @@ Essenzialmente dobbiamo avere tutte le classi dalle quali ereditiamo che eredita
 I metodi per risolvere l'ereditarietà multipla sono:
 - Delega o aggregazione
   - Dove noi alleghiamo l'oggetto all'interno della classe piuttosto che ereditarci
+  - Quindi piuttosto che avere una classe che eredita da due classi, abbiamo una classe che ha due oggetti, uno per ogni classe che dovrebbe ereditare
 - Ereditarietà basata su feature più importanti del resto
+  - Praticamente eredito dall'oggetto che ha la feature più importante e poi faccio l'aggregazione dell'oggetto che ha la feature meno importante.
+  - Per esempio un treno è prima un mezzo di trasporto e poi un qualcosa di grande e pesante, quindi eredito da mezzo di trasporto e poi faccio l'aggregazione di un oggetto che rappresenta il fatto che è grande e pesante.
 - Generalizzare su diverse dimensioni
+
+In seguito foto degli esempi delle trasformazioni, nell'ordine indicato sopra:
+
+![Primo](./res/delegaaggregazione.png)
+![Secondo](./res/fatureimportante.png)
+![Terzo](./res/generalizzazione.png)
+
+## Stato di un oggetto
+
+L'oggetto ha uno stato, che è definito da:
+- *Attributi*
+- *Associazioni* che ha con altri oggetti
+  - Per oggetti semplici
