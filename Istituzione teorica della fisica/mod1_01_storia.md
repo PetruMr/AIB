@@ -1,4 +1,10 @@
-# $1 \cdot$ Le basi storiche della Meccanica quantistica 
+> # 1 ⋅ Le basi storiche della Meccanica quantistica 
+
+#### NOTA SU COSE SCRITTE
+
+- La scritta $1.05(3)$ vuol dire che il valore è compreso tra $1.02$ e $1.08$.
+
+---
 
 Alla fine del *XIX* secolo la Fisica aveva ottenuto traguardi impensabili in diversi campi, e pertanto si pensava che le leggi fossero tutte scoperte e mancasse solo capire le loro "applicazioni" ai vari fenomeni. Per dirla con Lord Kelvin:
 
@@ -6,7 +12,7 @@ Alla fine del *XIX* secolo la Fisica aveva ottenuto traguardi impensabili in div
 
 Proprio queste due *nubi* le responsabili delle nuove scoperte: la prima diede uno spunto ad Einstein per la **relatività** e le seconde furono usate da Max Plank per porre le basi alla **rivoluzione quantistica**.
 
-## $1.1 \cdot$ La scoperta dell'elettrone
+## 1.1 ⋅ La scoperta dell'elettrone
 
 Per studiare i gas rarefatti, Geissler aveva inventato nel 1854 un dispositivo simile a quello nella figura seguente:
 
@@ -65,4 +71,100 @@ $$
 m_{e}c^2 = 0.511003(1) \ MeV
 $$
 
-## $1.2 \cdot$ Modelli atomici di Thomson e di Rutherford
+## 1.2 ⋅ Modelli atomici di Thomson e di Rutherford
+
+L'elettrone ha una massa di 1840 volte più piccola di quella di un atomo di idrogeno e 1839 volte quella di uno ione $H^{+}$ (detto anche *protone*) che ha massa:
+
+$$
+m_{p} = 1.67265 (1) \cdot 10^{-27} \ Kg \quad , \quad m_{p}c^2 = 938.280(3) \ MeV
+$$
+
+### 1.2.1 ⋅ Modello atomico di Thomson
+
+Thompson propose un modello atomico in cui "palle", dalle dimensioni di circa $10^{-8} \ cm = 1 \ \mathring{A} \ (\mathring{A}rmstrong)$ di carica positiva pari al numero atomico $Z$ e massa pari al peso atomico $A$, sono immerse in una nuvola di elettroni ("come grani in di pepe in un batuffolo di cotone").
+
+Quindi per esempio $^4_2He$ è una palla di carica $+2e$ con due elettroni incastonati, risultando in una carica nulla, dal peso di circa $4m_{p}$. (Quindi se pensavano che il protone avesse metà della sua reale massa, in quanto non si conosceva ancora l'esistenza del neutrone).
+
+#### Dove fallì questo modello
+
+All'interno di un esperimento del 1912 a Cambridge, Ruthenford bombardò un sottile foglio di oro con particelle $\alpha$ (cioè nuclei atomici di elio ionizzato $^4_2He^{++}$ ottenuti da sostanze radioattive, la nomenclatura coincide con il dire che si ha un atomo di Elio che ha massa atomica 4, numero atomico 2, ma ha perso 2 elettroni ed è pertanto di carica $+2e$) e notò che anziché attraversare gli atomi e procedere diritte come ci si sarebbe aspettati dal modello di Thomson essi venivano deviati in tutte le direzioni.
+
+Si prevedeva che le particelle $\alpha$ passassero indisturbate in quanto si supponeva che la carica positiva e negativa dell'atomo d'oro era uniformemente distribuita nella nube, e pertanto come "media" essa si doveva annullare, essenzialmente.
+
+### 1.2.2 ⋅ Modello atomico di Rutherford
+
+Dall'esperimento del 1912, si concluse che gli atomi non avevano la struttura piena proposta da Thomson, ma erano costituiti da un nucleo centrale delle dimensioni dell'ordine di $10^{-13} \ cm=1 \ fm \ (1 \ \text{fermi})$ circondate da elettroni che gli ruotavano attorno come in un piccolo sistema planetario, governati dalle leggi dell'elettrostatica coulombiana.
+
+In nucleo poteva essere ancora spiegato in termini di protoni ed elettroni, ma anche questa volta si consideravano i protoni come aventi massa doppia rispetto alla loro massa reale. Questa visione entrerà di nuovo in crisi con la scoperta del neutrone.
+
+#### Dove falliva questo modello
+
+L'atomo di Rutherford, seppur un gran passo avanti, aveva comunque grossi problemi:
+- Secondo le leggi di Maxwell una carica elettrica accellerata (l'elettrone che ruota attorno al nucleo a causa dell'accellerazione centripeta) deve emettere radiazione e perciò a poco a poco perdere la sua energia cinetica finendo con lo spiraleggiare verso il nucleo
+  - Con pochi calcoli si capisce che il tempe perché ciò succeda è $10^{-8} \ secondi$
+  - Visto che la materia esiste, c'era un problema tra quello che prediceva la teoria e quello che veniva mostrato dalla pratica
+- Dimostrare queste caratteristiche era impossibile all'interno dell'ambito della meccanica e dell'elettromagnetismo classici.
+
+## 1.3 ⋅ La radiazione di corpo nero
+
+Sia il **corpo nero** un concetto teorico e idealizzato della fisica il quale:
+- Assorbe ogni tipo di radiazione
+  - Luce, calore o in generale ogni tipo di radiazione elettromagnetica
+- Emette radiazione elettromagnetica dalle sue pareti
+  - In particolare emette radiazione dovuta alla temperatura del corpo
+
+Immaginiamo di avere questo corpo nero all'interno di una scatola di una certa temperatura, aspettiamo fino a quando si va a generare l'equilibrio termico e poi si apra un piccolo foro dal quale fuoriesce un fascio di **radiazione** che assumiamo sia un campione rappresentativo di quella che è in equilibrio termico dentro la scatola.
+
+La *curva di un corpo nero* assume la forma seguente (fa riferimento al punto 2 qua sotto):
+
+![Corpo nero](./res/corpo_nero.png)
+
+Allora le **osservazioni sperimentali** permettono di formulare diverse osservazioni:
+1. **Legge di Stefan-Boltzmann**
+   1. Per un corpo ideale, la potenza totale emessa per unità di superficie è proporzionale alla quarta potenza della temperatura assoluta:
+      $$
+      M = \sigma T^4
+      $$
+      Dove $\sigma$ è la costante di Stefan-Boltzmann, che vale:
+      $$
+      \sigma = 5.67051(19) \cdot 10^{-8} \ \frac{W}{m^2 K^4}
+      $$
+      Questa legge è stata verificata sperimentalmente per temperature comprese tra $1000 \ K$ e $3000 \ K$.
+   2. Per il caso generale, la forma che prende la legge è:
+      $$
+      M = \epsilon \sigma T^4
+      $$
+      Dove $\epsilon$ è l'emissività del corpo, che è un numero compreso tra 0 e 1, e che dipende dal materiale del corpo.
+2. **Distribuzione di intensità in funzione della lunghezza d'onda**
+   1. Fissata una temperatura, la distribuzione dell'intensità della di radiazione assume un andamento come quello nella figura sopra. Incrementando la temperatura, la forma della distribuzione rimane simile, ma le curve si innalzano e i massimi si spostano verso lunghezze d'onda minori
+   2. Si può notare come il picco verte tendenzialmente attorno allo spettro visibile
+3. **Legge dello spostamento di Wien**
+   1. I massimi della distribuzione $I(\lambda)$ di energia in funzione della lunghezza d'onda $\lambda$ seguono una ben precisa legge di proporzionalità inversa con la termperatura:
+      $$
+      \lambda_{max} = \frac{2.898 \cdot 10^{-3} \ [m\cdot K]}{T \ [K]}
+      $$
+      Dove $\lambda_{max}$ è la lunghezza d'onda corrispondente al massimo della distribuzione.
+
+I tentativi per giustifacere teoreticamente le leggi di Stefan-Boltzmann e di Wien e la forma di $I(\lambda)$ furono svariati.
+
+Tra essi spicca quello di Rayleigh e Jeans che, basandosi sui principi della fisica newtoniana e dell'elettromagnetismo classico proposero una legge per l'intensità di luce $I(\lambda)$ in funzione della lunghezza d'onda $\lambda$:
+
+$$
+I(\lambda) = \frac{8 \pi k T}{\lambda^4}
+$$
+
+Questo viene scritto nelle slide usando $\propto$ quindi lo ripropongo anche qua visto che è un simbolo che non ho mai visto e mi sembra molto interessante:
+
+$$
+I(\lambda) \propto \frac{T}{\lambda^4}
+$$
+
+che è in accordo con l'esperimento a grandi $\lambda$, ma errata a piccoli $\lambda$. Sebbene il risultato sia incorretto, seguiamo il ragionamento di Rayleigh e Jeans, perché il loro approccio è sostanzialmente corretto, mancando però di una ipotesi fondamentale che non è compatibile con le leggi dell'elettromagnetismo.
+
+Allo scopo vogliamo calcolare la densità di energia di radiazione contenuta nella cavità di frequenza compresa tra $\nu$ e $\nu + d\nu$.
+
+$$
+p(\nu)d\nu = \overline{\epsilon}N(\nu)d\nu
+$$
+
+ove $\overline{\epsilon}$ è l'energia media degli oscillatori delle pareti della cavità in risonanza con la frequenza $\nu$ e $N(\nu)d\nu$ è il numero di onde stazionarie all'interno della cavità, che assumiamo sia di forma cubica di lato $L$
