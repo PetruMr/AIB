@@ -153,7 +153,7 @@ $$
 I(\lambda) = \frac{8 \pi k T}{\lambda^4}
 $$
 
-Questo viene scritto nelle slide usando $\propto$ quindi lo ripropongo anche qua visto che è un simbolo che non ho mai visto e mi sembra molto interessante:
+Questo viene scritto nelle slide usando $\propto$ quindi lo ripropongo anche qua visto che è un simbolo che non ho mai visto e mi sembra molto interessante (il suo significato è che è *proporzionale*):
 
 $$
 I(\lambda) \propto \frac{T}{\lambda^4}
@@ -161,10 +161,96 @@ $$
 
 che è in accordo con l'esperimento a grandi $\lambda$, ma errata a piccoli $\lambda$. Sebbene il risultato sia incorretto, seguiamo il ragionamento di Rayleigh e Jeans, perché il loro approccio è sostanzialmente corretto, mancando però di una ipotesi fondamentale che non è compatibile con le leggi dell'elettromagnetismo.
 
-Allo scopo vogliamo calcolare la densità di energia di radiazione contenuta nella cavità di frequenza compresa tra $\nu$ e $\nu + d\nu$.
+Lo spiegherò seguendo questo [video](https://www.youtube.com/watch?v=rCfPQLVzus4), il quale contiene una buona spiegazione intuitiva dei vari passaggi usati per capire il problema.
+
+Innanzitutto immaginiamo di avere un onda che si propaga in 1d, quindi che va per esempio da destra a sinitra. Se immaginiamo un'onda che viene nella direzione opposta, che è perfettamente simetrica, allora queste onde si andranno a **sommare insieme**:
+- Descriviamo un onda come $y_R(x,t) = A \sin (kx - \omega t)$
+  - $y_R(x,t)$ rappresenta lo spostamente dell'onda in un punto $x$ e in un istante $t$.
+  - $A$ è l'ambiezza dell'onda, ovvero quanto è "alta": è il suo massimo spostamento dall'equilibrio.
+  - $sin$ è la funzione del seno, una funzione matematica periodica che descrive bene il comportamento ciclico delle onde.
+  - $k$ è il numero d'onda, che è proporzionale alla frequenza dell'onda e inversamente proporzionale alla lunghezza d'onda. Si può calcolare come $k = \frac{2 \pi}{\lambda}$, dove $\lambda$ è la lunghezza d'onda.
+    - Ci dice quante onde "ci stanno" in una certa lunghezza. Se $k$ è alto, allora ci stanno molte onde in una certa lunghezza, e quindi la lunghezza d'onda è piccola.
+  - $x$ è la posizione nello spazio lungo la direzione di propagazione dell'onda
+  - $\omega$ è la velocità angolare, che descrive quanto velocemente l'onda oscilla nel tempo. Si può calcolare come $\omega = 2 \pi f$, dove $f$ è la frequenza dell'onda, ovvero $f = \frac{c}{\lambda}$
+  - $t$ è il tempo
+
+> Possiamo immaginare di avere un onda che ha:
+> - $A = 1 \ \text{metro}$ (l'onda si alza e si abbassa di 1 metro)
+> - $f = 2 \ \text{Hz}$  (Due cicli al secondo)
+> - $\lambda = 3 \ \text{metri}$ (Ogni onda è lunga 3 metri)
+> 
+> Allora, usando le relazioni, otteniamo: $\omega = 2\pi f = 4 \pi$, $k = \frac{2 \pi}{\lambda} = \frac{2 \pi}{3}$.
+>
+> Sostituiamo questi valori dentro l'equazione dell'onda e otteniamo:
+>
+> $$
+> y_R(x,t) = \sin \left( \frac{2 \pi}{3} x - 4 \pi t \right)
+> $$
+>
+> Questo significa che a $t=0$ (l'inizio dell'osservazione), l'onda ha un valore di $y_R(x,0) = \sin \left( \frac{2 \pi}{3} x \right)$. Man mano che il tempo passa, la fase dell'onda cambia, facendo muove l'onda attraverso lo spazio.
+
+Ora, se noi supponiamo di avere 2 onde, che vanno l'una contro l'altra. Questo vorrà dire che una va avanti con il passare del tempo mentre l'altra andrà indietro e pertanto dove prima abbiamo usato $-$ ora dobbiamo usare $+$ nella formula, quindi abbiamo:
 
 $$
-p(\nu)d\nu = \overline{\epsilon}N(\nu)d\nu
+y(x,t) = y_R(x,t) + y_L(x,t) =
+\\ \ \\
+= A \sin (kx - \omega t) + A \sin (kx + \omega t)
 $$
 
-ove $\overline{\epsilon}$ è l'energia media degli oscillatori delle pareti della cavità in risonanza con la frequenza $\nu$ e $N(\nu)d\nu$ è il numero di onde stazionarie all'interno della cavità, che assumiamo sia di forma cubica di lato $L$
+Che è l'onda risultante da queste due che si muovono. Possiamo usare le formule della somma del seno e del coseno per ottenere:
+
+$$
+y(x,t) = 2A \sin (kx) \cos (\omega t)
+$$
+
+E se lo plottiamo, notiamo che il risultato sarà un'onda stazionaria, ovvero un'onda che non si muove, ma che ha dei picchi che oscillano su e giù.
+
+Ora, dobbiamo capire, in che casi si verificano questi picchi? Ovvero, **quali sono le frequenze che generano le onde stazionarie?**
+
+Sia dato una linea di lunghezza $L$, le onde devono essere necessariamente:
+
+- $y(0,t) = y(L,t) = 0$
+  - In quanto se non fosse così, allora l'onda non sarebbe stazionaria, ma si muoverebbe
+
+E quindi le possibili lunghezze d'onda sono date dalla formula:
+
+$$
+\lambda_n = \frac{2L}{n} \quad , \quad n\in \mathbb{N}
+$$
+
+Quindi, per esempio, in un cubo di lato $L = 40$, abbiamo le onde di frequenza: $80,40,26.\overline{6},20,...  \ Hz$ che formeranno onde stazionarie.
+
+#### Capiamo cosa è un black body meglio descrivendo come esso deve essere interpretato:
+
+Immaginiamo di avere il black body, il quale negli esperimenti prendeva la forma di un Jeans Cube era un cubo di metallo con un piccolo foro:
+- Se della radiazione entra dal buco, essa rimbalzerà sui suoi muri fino a quando viene assorbita. Questo in quanto il foto è molto piccolo, pertanto dal punto dal nostro punto di vista il foro è un black body, il quale assorbe
+- Possiamo però anche considerare il caso inverso, nel quale le mura del cubo sono riscaldate fino a una certa temperatura. Visto che una piccola parte delle radiaizoni fuoriuscirà dal buco, allora il buco diventa una sorgente di radiazione
+- Quindi il foro è sia un perfetto assorbitore che un perfetto emettitore di radiazione, pertanto simula il comportamento di un black body
+
+#### Quali erano le leggi della fisica conosciute e usate al tempo per la loro dimostrazione?
+
+##### Elettromagnetismo
+
+In particolare le formule della radiazione elettromagnetica, la quale diceva che la luce consisteva di una onda elettromagnetica che viaggiava alla velocità della luce nel vuoto.
+
+##### Leggi statistiche della termodinamica
+
+Questo ci diceva che la temperatura di un oggetto è la media delle energie cinetiche delle sue particelle.
+
+#### Quali erano gli obbiettivi?
+
+L'obbiettivo era quello di trovare $\rho (f)$, ovvero la densità di energia, che è l'energia per unità di volume, in funzione della frequenza $f$. Questa cambia in base alla temperatura $T$.
+
+Volevamo trovarla in uno stretto intervallo, ovvero $f + df$. 
+
+A partire da questo, la radiazione spettrale è facile da calcolare, in quanto è proporzionale, e la proporzione è data da:
+
+$$
+R(f) = \frac{c}{4\pi} \rho (f)
+$$
+
+#### Quali erano gli step?
+
+1. Contare il numero di onde che possono "stare" nel cubo
+2. Calcolare l'energia media di queste onde
+3. Calcolare la densità di energià $\rho(f)$ nel range di frequenze tra $f$ e $f+df$
