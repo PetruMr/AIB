@@ -56,7 +56,7 @@ Cosa farebbe questo nell'equazione di aristotele?
 $$
 x(t+\Delta) = x(t) + \frac{-k \cdot x(t)}{m} \Delta
 \\ \ \\
-x(t) [1 - \frac{k \Delta}{m}] = x(t+\Delta)
+x(t) \left[1 - \frac{k \Delta}{m}\right] = x(t+\Delta)
 $$
 
 Questa formula ci dice che se noi sappiamo la posizione ad un dato tempo, ogni intervallo di tempo quello che succedere è che la posizione sarà moltiplicata per un valore che è minore di 1. Questo significa che la posizione si avvicinerà sempre più a 0.
