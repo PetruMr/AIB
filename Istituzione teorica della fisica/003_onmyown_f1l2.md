@@ -91,13 +91,46 @@ Per questo questa formula ci sembra un po' sospetta, perchè ogni configurazione
 
 Le leggi di Newton, invece, non soffrono di questo problema: anche semplici sistemi come quello della molla, in base allo stato iniziale daranno luogo a un diverso stato finale; sono reversibili.
 
+#### Note
+
+Per le equazioni di Aristotele, ci basta conoscere la posizione per sapere tutto del futuro, ovvero la velcità, l'accelerazione, etc.
+
+In particolare possiamo avere le seguenti equazioni:
+
+$$
+F = m \cdot v
+\\ \ \\ 
+F(x) = m \cdot \frac{dx}{dt} \quad,\quad \text{Da notare che è una funzione di } x
+\\ \ \\
+\frac{dF}{dt} = m \cdot a
+\\ \ \\ \text{Ma questo lo possiamo riscrivere come:}
+\\ \ \\
+\frac{dF}{dx} \cdot \frac{dx}{dt} = m \cdot a
+\\ \ \\
+\frac{dF}{dx} \cdot v = m \cdot a
+$$
+
+A questo punto abbiamo che:
+- Sappiamo la velocità dato il luogo
+- Sappiamo l'accelerazione data la velocità (e quindi dato il luogo)
+
+Possiamo anche andare oltre, e calcolare la derivata della accellerazione, ovvero la gierezione (*jerk*):
+
+$$
+m \cdot J = \frac{d\frac{dF}{dx}v}{dt} = \frac{d^2F}{dx^2}v + \frac{dF}{dx}a
+$$
+
+(Abbiamo usato la regola della derivata di un prodotto, ovvero la derivata della prima per la seconda più la prima per la derivata della seconda)
+
+Da qui si potrebbe anche andare avanti, ma ci fermiamo qua e mostriamo che esiste un pattern.
+
 ## 1.3 ⋅ Le leggi di Newton
 
 #### Piccolo appunto sugli intertial frame of refference
 
 In fisica ci sono diversi frame of reference. In particolare, quelli che non sono inerziali sono quelli che sono in moto rispetto ad un altro frame of reference.
 
-In generale, Newton funziona negli intertial frame of reference e non funziona in quelli che non lo sono.
+In generale, Newton funziona negli intertial frame of reference e non funziona in quelli che non lo sono. (Inertial frame of reference: non accellera)
 
 Le leggi di Newton sono le seguenti:
 
@@ -108,7 +141,7 @@ $$
 $$
 
 Definiamo meglio le cose:
-- La massa è una caratteristica dell'oggetto, erra è una proprietà intrinseca
+- La massa è una caratteristica dell'oggetto, essa è una proprietà intrinseca
 - La forza viene dalla massa e dalla velocità
 
 Si vuole evitare una situazione "chicken and egg" dove si dice "la massa è la forza divisa l'accelerazione" e "la forza è la massa moltiplicata per l'accelerazione", anche se in realtà i concetti veri verranno introdotti in seguito.
@@ -368,7 +401,7 @@ $$
 \vec{F}(x) = - \frac{dV(x)}{dx} = m \ddot{x}
 $$
 
-Cosa dobbiamo fare per dimostrare che è conservata? Ci basta dimostrare che la sua derivata nel tempo è 0.
+Cosa dobbiamo fare per dimostrare che è conservata? Ci basta dimostrare che la sua derivata nel tempo è 0 (Ovvero andiamo a mostrare che l'energia, nel tempo, non varia, ma rimane costante, in quanto la sua derivata è 0).
 
 $$
 1/2 m \dot{x}^2 + V(x) = E

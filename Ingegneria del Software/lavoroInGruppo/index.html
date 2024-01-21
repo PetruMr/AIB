@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcolo Prezzo Totale</title>
+  <!-- Includere Bootstrap CSS - User story 13 -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(() => {
+      // Save the data of the IVA of different nations
+      var ivaOfNations = {
+        'US' : 0.06,
+        'IT' : 0.22,
+        'DE' : 0.19,
+        'FR' : 0.20,
+        'ES' : 0.21,
+        'UK' : 0.20,
+        'BE' : 0.21 
+      }
+
+      var scontiInBaseAPrezzo = {
+        0 : 0,
+        100 : 0.025,
+        200 : 0.05,
+        500 : 0.1,
+        1000 : 0.2,
+        2500 : 0.25,
+        5000 : 0.3 // valore molto alto per indicare che non c'è limite
+      }
+
+      function calcolaSconto(prezzoTotale) {
+        var sconto = 0;
+        for (var prezzo in scontiInBaseAPrezzo) {
+          if (prezzoTotale > prezzo) {
+            sconto = scontiInBaseAPrezzo[prezzo];
+          }
+        }
+        return sconto;
+      }
+  
+      // Catch the pressing of the #calculateForm button and calculate the data 
+      $('#calculateForm').click(function(e){
+        e.preventDefault();
+        var countryCode = $('#countryCode').val();
+        var quantity = $('#quantity').val();
+        var unitPrice = $('#unitPrice').val();
+        var iva = ivaOfNations[countryCode];
+        var totalPrice = quantity * unitPrice * (1 + iva) * (1 - calcolaSconto(quantity * unitPrice));
+        $('#result').html('Il prezzo totale è: ' + totalPrice.toFixed(2) + '€');
+        // User Story 15: Si esprime quali dati sono stati usati per il calcolo:
+        $('#result').append('<br>Il prezzo unitario è: ' + unitPrice + '€');
+        $('#result').append('<br>La quantità è: ' + quantity);
+        $('#result').append('<br>L\'IVA è: ' + iva * 100 + '%');
+        $('#result').append('<br>Lo sconto è: ' + calcolaSconto(quantity * unitPrice) * 100 + '%');
+        // In prezzo prima dello sconto e dell'iva
+        $('#result').append('<br>Il prezzo prima dello sconto e dell\'IVA è: ' + (quantity * unitPrice).toFixed(2) + '€');
+      });
+    })
+  </script>
+</head>
+<body class="row container-fluid">
+  <!-- Tabella delle informazioni - Informazioni sugli sconti in base al prezzo totale -->
+  <!-- Gli sconti sono:
+        100 : 0%
+        200 : 2.5%
+        500 : 5%
+        1000 : 10%
+        2500 : 20%
+        5000 : 25%
+        sopra: 30%
+  -->
+  <div class="col-4">
+    <h1>Informazioni utili:</h1>
+    <h2>Tabella degli sconti</h2>
+    <table class="table">
+      <tr>
+        <th colspan="2">Prezzo Totale compreso tra</th>
+        <th>Sconto</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>100</td>
+        <td>0%</td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>2.5%</td>
+      </tr>
+      <tr>
+        <td>200</td>
+        <td>500</td>
+        <td>5%</td>
+      </tr>
+      <tr>
+        <td>500</td>
+        <td>1000</td>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>2500</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>2500</td>
+        <td>5000</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>5000</td>
+        <td>∞</td>
+        <td>30%</td>
+      </tr>
+    </table>
+    <h2>Tabella dell'IVA</h2>
+    <!-- tabella degli iva -->
+    <table class="table">
+      <tr>
+        <th>Nazione</th>
+        <th>IVA</th>
+      </tr>
+      <tr>
+        <td>US</td>
+        <td>6%</td>
+      </tr>
+      <tr>
+        <td>IT</td>
+        <td>22%</td>
+      </tr>
+      <tr>
+        <td>DE</td>
+        <td>19%</td>
+      </tr>
+      <tr>
+        <td>FR</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>ES</td>
+        <td>21%</td>
+      </tr>
+      <tr>
+        <td>UK</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>BE</td>
+        <td>21%</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="col-2"></div>
+
+  <div class="col-4">
+    <h1>Calcolo Prezzo Totale</h1>
+    
+    
+
+    <!-- User Story 1: Interfaccia grafica per inserire dati -->
+    <form id="priceCalcForm">
+      <!-- User Story 3: Inserire il codice delle nazioni a due lettere  -->
+      <div class="form-group">
+        <label for="countryCode">Codice della Nazione a 2 lettere</label> <!-- User Story 3 -->
+        <select class="form-control" id="countryCode" name="countryCode">
+          <option value="US">US</option>
+          <option value="IT">IT</option>
+          <option value="DE">DE</option>
+          <option value="FR">FR</option>
+          <option value="ES">ES</option>
+          <option value="UK">UK</option>
+          <option value="BE">BE</option>
+        </select>
+      </div>
+      <!-- User story 4: Inserire la quantità -->
+      <div class="form-group">
+        <label for="quantity">Quantità di Articoli</label> <!-- User Story 4 -->
+        <input type="number" class="form-control" id="quantity" name="quantity">
+      </div>
+      <!-- User story 5: Inserire il prezzo unitario -->
+      <div class="form-group">
+        <label for="unitPrice">Prezzo Unitario</label> <!-- User Story 5 -->
+        <input type="number" class="form-control" id="unitPrice" name="unitPrice">
+      </div>
+      <!-- User Story 10: il prezzo finale viene calcolato con un pulsante -->
+      <button id="calculateForm" type="submit" class="btn btn-primary">Calcola Prezzo Totale</button>
+    </form>
+
+    <div id="result" class="mt-4">
+      <!-- Qui verrà mostrato il prezzo totale -->
+    </div>
+  </div>
+
+  <!-- Includere Bootstrap e jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

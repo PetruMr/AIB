@@ -105,13 +105,13 @@ Immaginiamo di avere una *particella* (per ora definita come "una cosa che occup
 Possiamo avere un infinità di stati dove può stare, ovvero l'infinito numero di posti dove può stare.
 
 Possiamo andare ad indicare la posizione con un intero, $n$. Poi possiamo descrivere leggi come per esempio:
-- $n \rightarrow n + 1$, che si può scrivere come $\sigma(t) =\sigma(t) + 1$
+- $n \rightarrow n + 1$, che si può scrivere come $\sigma(t + 1) =\sigma(t) + 1$
 - Notiamo che non **cicla**
 
 Potremmo avere un'altra legge:
 - Ovunque tu sia salta di due unità:
 - $n \rightarrow n + 2$
-- $\sigma(t) = \sigma(t) + 2$
+- $\sigma(t + 1) = \sigma(t) + 2$
 
 Notiamo che nel primo caso non c'è nulla di conservato, mentre nel secondo si conserva la **parità**, ovvero possiamo identificare tutte le posizioni dispari come una quantità conservata labellata come $1$, mentre tutte le posizioni pari come una quantità conservata labellata come $0$.
 
@@ -169,7 +169,7 @@ D'altro canto, nel mondo reale non possiamo quindi:
 
 Se noi dovessimo prendirre, per esempio, $X$ anni nel futuro, noi dovremmo poter calcolare con quanta *precisione* dovremmo conoscere lo stato del sistema.
 
-### 7 ⋅ Come capire se una legge è deterministica
+## 7 ⋅ Come capire se una legge è deterministica
 
 Capire se una legge è **legale**, ovvero se è **reversibile**, ovvero se è **deterministica** ci basta guardare se:
 - $\forall \sigma \in \Sigma$ (ovvero per ogni stato del sistema) $\exists$ una e una sola $\rightarrow$ (ovvero una e una sola freccia che parte da $\sigma$) e una e una sola $\leftarrow$ (ovvero una e una sola freccia che arriva a $\sigma$).
@@ -194,7 +194,7 @@ Come si descrive la posizione di una particella nello spazio?
   - La sua posizione non influenza il resto, in quanto è solo un punto di riferimento. Ci è utile però per capire dove si trovano le altre particelle.
 - $x,y,z$
   - I tre assi cartesiani, che sono perpendicolari tra loro.
-  - Una convenzione tipica e arbitraria è quella della **mano destra**, dove noi impostiamo la $x$ come pollice, la $y$ come indice e la $z$ che punta verso di noi, con il medio.
+  - Una convenzione tipica e arbitraria è quella della **mano destra**, dove noi impostiamo la $x$ come pollice, la $y$ come indice (che punta in alto) e la $z$ che punta verso di noi, con il medio.
 - Dobbiamo marcare le distanze
   - Per fare questo dobbiamo scegliere delle **unità**, per esempio metri, centimetri, ecc...
 - Una volta che abbiamo deciso questo, ogni punto nello spazio può essere labellato con il valore di $x,y,z$ che ha, per esempio $(1,2,2)$, che ci indica che si trova a $1$ unità di distanza da $O$ lungo l'asse $x$, $2$ unità di distanza da $O$ lungo l'asse $y$ e $2$ unità di distanza da $O$ lungo l'asse $z$.

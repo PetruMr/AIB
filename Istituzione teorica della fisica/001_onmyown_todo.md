@@ -3,9 +3,9 @@
 Per poter capire meglio le origini, voglio andare a seguire i corsi di fisca che stanno alla base.
 
 I corsi che devo seguire sono:
-- [ ] [Fisica 1](https://www.youtube.com/watch?v=ApUFtLCrU90&list=PL47F408D36D4CF129) - Meccanica classica
-  - [ ] Lecture 1
-  - [ ] Lecture 2
+- [x] [Fisica 1](https://www.youtube.com/watch?v=ApUFtLCrU90&list=PL47F408D36D4CF129) - Meccanica classica
+  - [x] Lecture 1
+  - [x] Lecture 2
   - [ ] Lecture 3
   - [ ] Lecture 4
   - [ ] Lecture 5
