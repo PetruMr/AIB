@@ -126,7 +126,85 @@ Da qui si potrebbe anche andare avanti, ma ci fermiamo qua e mostriamo che esist
 
 ## 1.3 ⋅ Le leggi di Newton
 
-#### Piccolo appunto sugli intertial frame of refference
+#### Review della conservazione dell'energia
+
+Descriviamo la forza come:
+
+$$
+\vec{F} = - \vec{\nabla} U(x,y)
+$$
+
+Dove $\vec{\nabla}$ è il gradiente, e $U(x,y)$ è l'energia potenziale in un dato punto (in due dimensioni).
+
+In particolare, il significato è:
+
+$$
+F_x = - \partial_x U(x,y)
+\\ \ \\
+F_y = - \partial_y U(x,y)
+$$
+
+Quindi quello che ci dice è che la forza è quanto "velocemente" l'energia potenziale cambia in un dato punto.
+
+Usiamo questo per mostrare la legge di conservazione dell'energia di una particella.
+
+Abbiamo quindi che **l'energia** è definita in questo modo:
+
+$$
+\text{Energia cinetica}
+\\
+\begin{align*}
+\\
+T & = \frac{1}{2} m v^2 
+\\ 
+& = \frac{1}{2} m \left( V_x^2 + V_y^2 \right) 
+\\
+& = \frac{1}{2} m \sum_i V_i^2
+\end{align*}
+\\ \ \\
+\text{Energia totale}
+\\ \ \\
+E = T + U
+$$
+
+#### 1.3.1 ⋅ Dimostrare che è conservata
+
+Dobbiamo dimostrare che questa quantità è conservata, ovvero che la sua *derivata rispetto al tempo è 0*, e per farlo usiamo le equazioni di Newton.
+
+La derivata rispetto al tempo dell'energia cinetica è:
+
+$$
+\frac{dT}{dt} = m \sum_i V_i \frac{dV_i}{dt}
+\\ \ \\
+\text{in quanto: } f'(x) = f'(g(x)) \cdot g'(x)
+\\ \ \\
+\frac{dT}{dt} = m \sum_i V_i a_i
+$$
+
+La derivata rispetto al tempo dell'energia potenziale è:
+
+$$
+\frac{dU(x)}{dt} = \sum_i \frac{\partial U}{\partial x_i} V_i  
+$$
+
+E quindi la derivata dell'energia è:
+
+$$
+\begin{align*}
+\frac{dE}{dt} & = \sum_i V_i m a_i + \frac{\partial U}{\partial x_i} V_i
+\\
+& = \sum_i V_i \left( m a_i + \frac{\partial U}{\partial x_i} \right)
+\end{align*}
+\\
+\text{Ma qua abbiamo: } F_i = m a_i \text{ e } F_i = - \frac{\partial U}{\partial x_i} \text{, quindi:}
+\\
+\frac{dE}{dt} = \sum_i V_i \left( F_i - F_i \right) = 0
+$$
+
+Quindi **l'energia è conservata**.
+
+
+### Piccolo appunto sugli intertial frame of refference
 
 In fisica ci sono diversi frame of reference. In particolare, quelli che non sono inerziali sono quelli che sono in moto rispetto ad un altro frame of reference.
 
@@ -134,7 +212,25 @@ In generale, Newton funziona negli intertial frame of reference e non funziona i
 
 Le leggi di Newton sono le seguenti:
 
-#### Descriviamo meglio la formula
+### Descriviamo meglio la formula di **Newton**
+
+La formula è la seguente:
+
+$$
+\begin{align*}
+\vec{F} & = m \cdot \vec{a}
+\\
+& = m \cdot \frac{d\vec{v}}{dt}
+\\
+& = \frac{d}{dt} \left( m \cdot \vec{v} \right)
+\\
+& = \frac{d\vec{p}}{dt}, \quad \text{dove } \vec{p} = m \cdot \vec{v}
+\end{align*}
+$$
+
+In particolare, $m \cdot \vec{v}$ è il **momentum**.
+
+Descriviamo poi quindi la formula e basta:
 
 $$
 \vec{F} = m \cdot \vec{a}
