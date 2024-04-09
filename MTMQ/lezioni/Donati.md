@@ -10,4 +10,4 @@ Problemi principali:
 Input: $\alpha\ket{0} + \beta\ket{1}, \ket{0}, \ket{0}$
 Output: $\alpha\ket{000} + \beta\ket{111}$
 Così ho la codifica di 1 qubit logico su 3 qubit fisici
-$$\alpha\ket{000} + \beta\ket{111} \rightarrow (1-\epsilon_\tau)^3 \\ \alpha\ket{100} + \beta\ket{011} \rightarrow \epsilon(1-\epsilon_\tau)^2 \\
+$$\alpha\ket{000} + \beta\ket{111} \rightarrow (1-\epsilon_\tau)^3 \\ \alpha\ket{100} + \beta\ket{011} \rightarrow \epsilon(1-\epsilon_\tau)^2 \\ 

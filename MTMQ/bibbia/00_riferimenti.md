@@ -26,3 +26,4 @@ I libri consigliati dal corso sono:
 Altri suggerimenti di lettura e materiale verrà messo sulla piattaforma Virtuale (da vedere dopo).
 
 In particolare, ho fatto uso delle risorse su virtuale (che citerò contestualmente) e del libro di Nielsen e Chuang (che non pubblicherò qua per questioni di Copyright).
+

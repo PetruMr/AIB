@@ -85,3 +85,4 @@ Esempio:
   - C'è una probabilità di 3/4, per 1 bit, che Trudy riesca a passare inosservato nella misurazione e nell'ottenimento dell'informazione.
   - Per $n$ bit, la probabilità che Trudy passi inosservato è $\left( \frac{3}{4} \right) ^n$.
   - Notiamo che per $n \rightarrow \infty$, la probabilità che Trudy passi inosservato è 0.
+- Quindi Trudy può impedire la comunicazione, ma non potrà andare a ottenre l'informazione.
