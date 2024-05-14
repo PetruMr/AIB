@@ -20,7 +20,7 @@ Questa domanda può avere più risposte corrette:
 - Una funzione ricorsiva
 - Un linguaggio di programmazione sufficientemente espressivo
 
-Per la **tesi di Church-Turing**: qualunque problema che un essere umano può calcolare seguendo un algoritmo, può essere calcolato da indifferentemente usando uno di questi strumenti di calcolo.
+Per la **tesi di Church-Turing**: qualunque problema che un essere umano può calcolare seguendo un algoritmo, può essere calcolato indifferentemente usando uno di questi strumenti di calcolo.
 
 C'è un'altra tesi secondo la quale un essere umano è equivalente in termini di calcolo a una macchina di Turing. Quindi: ogni macchina può calcolare quanto un umano, con abbastanza tempo, e ogni umano può calcolare quanto una macchina.
 

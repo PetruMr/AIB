@@ -34,10 +34,10 @@ La tesi di Church-Turing non afferma nulla riguardo l'**efficienza** o la **semp
 
 In effetti, le macchine di Turing sono severamente limitate in certi aspetti, che le rendono inutilizzabili per fini "pratici":
 - Le macchine di Turing sono intrinsecamente più lente di altri modelli di calcolo perché l'accesso ai dati è **sequenziale**
-- Sono estremamente **difficili da progettare*
+- Sono estremamente **difficili da progettare**
 
 Tuttavia le TM mantengono una grande importanza teorica e concettuale:
-1. Perché forniscono una fondazione matematica chiara per **definire in modo rigoroso** cos'è un algoritmo (incluso co'è un algoritmo non-deterministico / probabilistico / quantistico / ...)
+1. Perché forniscono una fondazione matematica chiara per **definire in modo rigoroso** cos'è un algoritmo (incluso cos'è un algoritmo non-deterministico / probabilistico / quantistico / ...)
 2. Perché (se la tesi di C-T è vera) sono capaci di simulare qualsiasi altra macchina di calcolo. Perciò possiamo utilizzarle per **dimostrare enunciati matematici sulle possibilità e i limiti di ciò che è calcolabile**.
 
 ---
@@ -258,6 +258,10 @@ Sono chiusi per:
 - **Concatenazione**
 
 Le dimostrazioni sono identiche a quelle per i linguaggi decidibili, ma al posto di TM che finiscono, finiamo in cicli per rigettare e terminiamo per accettare.
+
+Da notare che però, per esempio per l'unione:
+- Se noi facessimo le cose in **sequenza**, ovvero prima analizzassimo la stringa con la macchina $\mathcal{M}_1$ e poi con $\mathcal{M}_2$, ma la prima finisce in un loop, anche se la seconda dovrebbe accettare non ci arriverà mai!
+  - Quindi dobbiamo andare a fare queste due cose in **parallelo**, non in sequenza, ovvero analizziamo la stringa in input su due nastri e eseguiamo in parallelo $\mathcal{M}_1$ e $\mathcal{M}_2$
 
 ### Complemento
 

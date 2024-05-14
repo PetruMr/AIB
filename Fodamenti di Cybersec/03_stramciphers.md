@@ -396,3 +396,25 @@ Definiamo un cifrario $Q=(E,D)$ e un avversario $A$ che definisce il gioco come 
 Per $b=0,1$, definisci l'esperimento $\text{EXP}(0)$ e $\text{EXP}(1)$ come segue:
 
 ![Sicurezza semantica](image.png)
+
+Essenzialmente viene passato un messaggio che può essere o $m_0$ o $m_1$, e l'avversario deve indovinare quale dei due è stato passato, facendo un output $b'$.
+
+Il vantaggio dell'avversario è definito come:
+
+$$
+\text{Adv}[A,Q] = \left| Pr[\text{EXP}(0) = 1] - Pr[\text{EXP(1) = 1}] \right| \in [0,1]
+$$
+
+Definizione di sicurezza semantica:
+> Un cifrario $Q=(E,D)$ è **semanticamente sicuro** se per ogni avversario efficiente $A$ il vantaggio è trascurabile, ovvero $\text{Adv}[A,Q]$ è trascurabile.
+
+Essenzialmente, possiamo per esempio immaginare che nel caso peggiore abbiamo come valore 1.
+
+### 10.2 ⋅ Stream ciphers e sicurezza semantica
+
+Teorema:
+> $G$ è una PRG sicura $\implies$ lo stream cipher $Q$ derivato da $G$ è **semanticamente sicuro**.
+
+In particolare: $\forall$ avversari con semantica sicura, $\exists$ una PRG avversaria $B$ (ovvero un test statistico) tale che $Adv_{PRG}[A,Q] \leq 2 \cdot Adv_{PRG}[B,G]$
+
+### 10
