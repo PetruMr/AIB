@@ -129,7 +129,7 @@ Si tratta in generale di utilizzare la stessa chiave per andare a fare l'encrypt
 
 ### 4.1 ⋅ Semantic Security for Many-Time Key
 
-Il fatto che noi usiamo **la stessa chaive più volte** $\implies$ l'avversario vede molte CT con la stessa chiaver (ovvero usata per **più messaggi**)
+Il fatto che noi usiamo **la stessa chaive più volte** $\implies$ l'avversario vede molte CT con la stessa chiave (ovvero usata per **più messaggi**)
 
 L'avversario ha:
 - **Adversary's power**: **$\text{Chosen-Plaintext Attack}$** (CPA)

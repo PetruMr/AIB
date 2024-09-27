@@ -375,7 +375,7 @@ Siano $(E,D)$ un cifrario simmetrico su $(K,M,C)$.
 
 Andiamo a rielaborare "Shannon's perfect secrecy", che era:
 
-> $(E,D)$ ha una sicurezza perfetta se $\forall m_0, m_1 \in M \ (|m_0| = |m_1|)
+> $(E,D)$ ha una sicurezza perfetta se $\forall m_0, m_1 \in M \ (|m_0| = |m_1|)$
 >
 > $$
 > \{E(k,m_0)\} = \{E(k,m_1)\} \quad \forall k \in K
@@ -416,5 +416,3 @@ Teorema:
 > $G$ è una PRG sicura $\implies$ lo stream cipher $Q$ derivato da $G$ è **semanticamente sicuro**.
 
 In particolare: $\forall$ avversari con semantica sicura, $\exists$ una PRG avversaria $B$ (ovvero un test statistico) tale che $Adv_{PRG}[A,Q] \leq 2 \cdot Adv_{PRG}[B,G]$
-
-### 10

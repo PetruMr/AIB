@@ -52,7 +52,7 @@ Sia $F : K \times X \rightarrow Y$ una PRF. Impostiamo innanzitutto delle notazi
 - $Funs[X,Y]$ è l'insieme di tutte le funzioni da $X$ a $Y$
 - $S_F = \{F(k,\cdot) : k \in K\} \subseteq Funs[X,Y]$
   - Questo è l'insieme delle funzioni generate da $F$ con tutte le chiavi possibili
-  - Mentre $Funs[X,Y]$ è l'insieme di tutte le funzioni possibili a parte dallo stesso superset delle chiavi per raggiungere qualsiasi possibile risultato
+  - Mentre $Funs[X,Y]$ è l'insieme di tutte le funzioni possibili a partire dallo stesso superset delle chiavi per raggiungere qualsiasi possibile risultato
 
 Intuizione della definizione:
 - Una PRF è **sicura** se una funzione scelta casualmente da $Funs[X,Y]$ è indistinguibile da una funzione casuale in $S_F$.

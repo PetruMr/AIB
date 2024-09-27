@@ -202,6 +202,12 @@ La spiegazione è:
 - **Body**: si manda il messaggio cifrato con la chiave $H(x)$, la quale è un hash di $x$. Questo serve a garantire che il messaggio non possa essere modificato.
 - Tutti i dati sono riottenibili facendo un algoritmo, quindi si aggiunge un grado di complessità che rende il sistema sicuro.
 
+Spiegazione ancora più semplice:
+- Generiamo $x$ casualmente, questa viene usata per creare la chiave simmetrica per decriptare il messaggio $c$
+- Si manda $x$ criptato con la chiave pubblica
+- Verrà decriptato $x$, verrà fatto l'hash e si otterrà la chiave e poi si userà questa per decriptare il messaggio $c$ criptato con la chiave simmetrica.
+- Questo ci permetti di usare la crittografia simmetrica, che è molto più veloce, ma con la sicurezza della crittografia asimmetrica, in quanto le chiavi simmetriche vengono mandate usando questa cosa.
+
 ### 6.1 ⋅ Security Theorem
 
 Se $(G, F, F^{-1})$ è una TDF sicura e $(E_s, D_s)$ è un sistema di crittografia simmetrica sicuro, allora il sistema $(G, E, D)$ è sicuro contro gli attacchi *chosen-ciphertext*.

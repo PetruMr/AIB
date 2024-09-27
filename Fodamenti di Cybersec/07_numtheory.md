@@ -153,8 +153,11 @@ Non tutti gli elementi sono generatori, per esempio con $p=7$ abbiamo che $2$ no
 
 Alcuni esempi sono:
 - $\text{ord}_7(3) = 6$
+  - In quanto $3^6 = 1 \text{ in } \mathbb{Z}_7$, e non esiste un $r<6$ tale che $3^r = 1$ (tranne $r=0$ ma a noi ci interessano $r>0$)
 - $\text{ord}_7(2) = 3$
+  - In quanto $2^3 = 1 \text{ in } \mathbb{Z}_7$
 - $\text{ord}_7(1) = 1$
+  - In quanto $1^1 = 1 \text{ in } \mathbb{Z}_7$
 
 > **Teorema** (di Lagrange): $\forall g \in (\mathbb{Z}_p)^*$: $\text{ord}_p(g)$ divide $p-1$
 
@@ -290,7 +293,7 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \text{ in } \mathbb{Z}_p
 $$
 
 I passaggi che dobbiamo fare sono quindi:
-- Trovare $(2a)^-1 \text{ in } \mathbb{Z}_p$ usando l'algoritmo di Euclide esteso
+- Trovare $(2a)^{-1} \text{ in } \mathbb{Z}_p$ usando l'algoritmo di Euclide esteso
 - Trovare la radice quadrata di $b^2-4ac$ in $\mathbb{Z}_p$ (se esiste) usando un algoritmo per trovare le radici quadrate.
 
 ### 6.5 ⋅ Computazione di e-th roots mod N
